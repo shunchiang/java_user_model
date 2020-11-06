@@ -1,10 +1,12 @@
 package com.lambdaschool.usermodel.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table
-public class UserRoles {
+@Table(name="userroles")
+@IdClass(UserRolesId.class)
+public class UserRoles implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(name="userid")
