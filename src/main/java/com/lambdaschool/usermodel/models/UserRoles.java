@@ -40,4 +40,18 @@ public class UserRoles implements Serializable {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserRoles that = (UserRoles) o;
+        return (((this.user == null) ? 0 : this.user.getUserid()) == that.user.getUserid()) &&
+                (((this.user == null) ? 0 : this.role.getRoleid()) == that.role.getRoleid());
+    }
+
+    @Override
+    public int hashCode() {
+        return 37;
+    }
 }
