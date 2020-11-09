@@ -1,5 +1,7 @@
 package com.lambdaschool.usermodel.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,11 +12,13 @@ public class UserRoles implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(name="userid")
+    @JsonIgnoreProperties(value = "roles", allowSetters = true)
     private User user;
 
     @Id
     @ManyToOne
     @JoinColumn(name="roleid")
+    @JsonIgnoreProperties(value = "users", allowSetters = true)
     private Role role;
 
     public UserRoles() {
